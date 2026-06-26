@@ -1,0 +1,15 @@
+# Pinned Rust toolchain — required for UKI MEASUREMENT reproducibility
+# across operators (see scripts/build_bhtm_proof_uki.sh).
+# Different rustc versions produce different binary bytes for the
+# same source, so two operators must agree on the toolchain to produce
+# byte-identical `blockhash-to-muhash` binaries — which is what the
+# SEV-SNP MRTD pin relies on.
+#
+# 1.94.1 matches BitcoinPIR/rust-toolchain.toml and is the current
+# stable on the Hetzner UKI build host (Ubuntu 24.04 + rustup
+# default-stable as of 2026-04). Bump deliberately when crossing a
+# stable cycle, and re-run the operator-published binary SHA256 pin.
+
+[toolchain]
+channel = "1.94.1"
+components = ["rustfmt", "clippy"]

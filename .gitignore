@@ -1,0 +1,11 @@
+/target/
+**/*.rs.bk
+*.swp
+data/
+.DS_Store
+**/.DS_Store
+.claude/
+.reasonix/
+reasonix.toml
+**/__pycache__/
+**/*.pyc
