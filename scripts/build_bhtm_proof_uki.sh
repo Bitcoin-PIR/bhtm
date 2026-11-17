@@ -128,6 +128,8 @@ DRIVER_LIST="virtio_net virtio_pci $REQUIRED_SEV_MODS"
 
 echo "==> Building dracut initramfs at $INITRD"
 SOURCE_DATE_EPOCH=0 dracut --force --no-hostonly --reproducible --nostrip \
+    --compress zstd --no-early-microcode \
+    --omit "drm bpir-verify bpir-cloudflared bpir-unified-server bpir-tier3-init bpir-pir2-sealed-provisioner bpir-attested-builder bpir-builder-tier3-init" \
     --add "network bhtm-proof-init" \
     --add-drivers " $DRIVER_LIST " \
     --kver "$KVER" \
